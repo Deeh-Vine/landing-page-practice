@@ -3,18 +3,29 @@
     margin: 0;
     overflow-x: hidden;
 }
+main{
+    margin-top: 70px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
 
 header{
-    height: 80px;
+    align-items: center;
     width: 100%;
+    height: 80px;
     background-image: url(image.jpg);
     background-size: cover;
     position: fixed;
     z-index: 1000;
+    scrollbar-width: none;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 #logo{
-    float: left;
     margin-bottom: 0px;
 
 }
@@ -33,7 +44,6 @@ body{
     margin: 10px;
     margin-top: 50px;
     padding: 0px;
-    float: right;
     display: inline;
     margin-bottom: 0px;
     width: fit-content;
@@ -49,27 +59,30 @@ body{
 .menu a:hover{
     color: orangered;
 }
+ @media (max-width: 868px){
+    #movieroz{
+        display: none;
+    }
+    main{
+        flex-direction: column;
+    }
+ }
 
 #movieroz{
-    text-align: center;
     color: rgba(255, 68, 0, 0.932);
-    margin-left: 100px;
-    left: 50%;
-    float: left;
     top: 10px;
-    position: absolute;
     left: 0px;
     font-size: 40px;
     font-family: pacifico;
 }
 
 #text_div{
+    flex: 0 0 70%;
+    display: block;
     height: 500px;
-    width: 45%;
     padding-top: 100px;
     padding-left: 30px;
-    float: left;
-    
+    display: inline-block;
 }
 
 #aa{font-size: 40px;
@@ -106,13 +119,12 @@ color: bisque;
     text-decoration: none;
 }
 #form_div{
+    right: 10px;
     height: 350px;
-    width: 20%;
-    float: right;
     background-color: rgba(3, 3, 3, 0.5);
     padding-top: 50px;
     margin-right: 60px;
-    margin-top: 120px;
+    margin-top: 70px;
     border-radius: 20px;
 }
 #login_here{
@@ -130,7 +142,7 @@ color: bisque;
 #form_div input{
     height: 30px;
     border: none;
-    border-bottom: rgb(238, 174, 128) 3px solid;
+    border-bottom: rgb(238, 174, 128) 2px solid;
     font-size: 23px;
     background-color: rgba(255, 255, 255, 0);
     margin: 10px;
@@ -155,4 +167,3 @@ color: bisque;
     text-align: center;
     color: white;
 }
-
