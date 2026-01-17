@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Registration Form</title>
+    <!-- Google Fonts: Importing a nice clean font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- RESET & BASIC STYLES --- */
+        /* This removes default browser spacing so we start with a clean slate */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            /* Full screen height */
+            min-height: 100vh;
+            /* Flexbox to center the form vertically and horizontally */
+            display: flex;
+            flex-direction: column;
+            /* Dark luxury background */
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 100%);
+            color: #fff;
+        }
+
+        /* --- NAVIGATION BAR --- */
+        nav {
+            display: flex;
+            justify-content: space-between; /* Pushes logo to left, links to right */
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(0, 0, 0, 0.3); /* Semi-transparent dark bar */
+            backdrop-filter: blur(5px);
+            
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3); /* Subtle gold border */
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #d4af37; /* Gold color */
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px; /* Space between links */
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            text-transform: uppercase;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37; /* Turns gold on hover */
+        }
+
+        /* --- MAIN FORM SECTION --- */
+        .main-content {
+            flex: 1; /* Takes up remaining space */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        /* Background decoration (The Gold Star/Circle vibe) */
+        .background-shape {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
+            z-index: 0; /* Behind the form */
+            pointer-events: none;
+        }
+
+        .form-container {
+            position: relative;
+            z-index: 1; /* In front of the background shape */
+            background: rgba(255, 255, 255, 0.05); /* Glassy look */
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 40px;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .form-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #d4af37;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* --- FORM INPUTS --- */
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+            color: #ccc;
+            letter-spacing: 1px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus {
+            border-color: #d4af37; /* Gold border when clicked */
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        /* --- SUBMIT BUTTON --- */
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, #d4af37, #f1c40f);
+            border: none;
+            border-radius: 8px;
+            color: #000;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        /* --- FOOTER STYLES --- */
+        footer {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(5px);
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 25px;
+            margin-top: auto; /* Ensures footer stays at bottom */
+            font-size: 0.85rem;
+            color: #aaa;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .footer-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 3px;
+            opacity: 0.6;
+        }
+
+        .footer-value {
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .footer-highlight {
+            color: #d4af37;
+        }
+
+        /* --- MOBILE RESPONSIVENESS --- */
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+            
+            .nav-links {
+                font-size: 0.8rem;
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .form-container {
+                padding: 30px 20px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">Lumen Star</div>
+        <div class="nav-links">
+            <!-- Note: href="#" is a placeholder link -->
+            <a href="#">Address</a>
+            <a href="#">Our Services</a>
+            <a href="#">Contact</a>
+            <a href="#">About Us</a>
+            <a href="#">Home</a>
+        </div>
+    </nav>
+
+    <!-- Main Section -->
+    <section class="main-content">
+        <!-- Decorative background glow -->
+        <div class="background-shape"></div>
+
+        <!-- The Form Card -->
+        <div class="form-container">
+            <h2 class="form-title">Fill in your details</h2>
+            
+            <form action="#">
+                <!-- Full Name -->
+                <div class="input-group">
+                    <label for="fullname">FULL NAME</label>
+                    <input type="text" id="fullname" placeholder="Enter your full name">
+                </div>
+
+                <!-- Email -->
+                <div class="input-group">
+                    <label for="email">E-MAIL</label>
+                    <input type="email" id="email" placeholder="example@email.com">
+                </div>
+
+                <!-- Username -->
+                <div class="input-group">
+                    <label for="username">USERNAME</label>
+                    <input type="text" id="username" placeholder="Choose a username">
+                </div>
+
+                <!-- Phone -->
+                <div class="input-group">
+                    <label for="phone">PHONE NO</label>
+                    <input type="tel" id="phone" placeholder="+1 234 567 8900">
+                </div>
+
+                <!-- Password -->
+                <div class="input-group">
+                    <label for="password">PASSWORD</label>
+                    <input type="password" id="password" placeholder="••••••••">
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer with Random Details -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-item">
+                <span class="footer-label">Built By</span>
+                <span class="footer-value">Dev. Sarah</span>
+            </div>
+            
+            <div class="footer-item">
+                <span class="footer-label">Powered By</span>
+                <span class="footer-value">Pizza & <span class="footer-highlight">Bug Fixes</span></span>
+            </div>
+
+            <div class="footer-item">
+                <span class="footer-label">Current Mood</span>
+                <span class="footer-value">Debugging Life 🐛</span>
+            </div>
+
+            <div class="footer-item">
+                <span class="footer-label">Copyright</span>
+                <span class="footer-value">&copy; 2025 Lumen Star</span>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

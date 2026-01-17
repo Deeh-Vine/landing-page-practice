@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avelina Couture | Bespoke Tailoring</title>
+    
+    <!-- Google Fonts for Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- RESET & VARIABLES --- */
+        :root {
+            --primary-color: #1a1a1a; /* Dark Black/Grey */
+            --accent-color: #c5a059;  /* Gold/Muted Bronze */
+            --bg-color: #ffffff;
+            --light-bg: #f9f9f9;
+            --text-color: #333333;
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth; /* Smooth scrolling without JS */
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--bg-color);
+        }
+
+        /* --- HEADER & NAV --- */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            flex-wrap: wrap; /* Allows stacking on mobile */
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 90vh;
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: fadeIn 2s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+            font-weight: 300;
+        }
+
+        .cta-btn {
+            padding: 12px 30px;
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        /* --- COLLECTIONS (GRID) --- */
+        .section-padding {
+            padding: 5rem 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+        .section-title span {
+            display: block;
+            font-size: 1rem;
+            font-family: var(--font-body);
+            color: var(--accent-color);
+            margin-top: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .gallery-grid {
+            display: grid;
+            /* Auto-fit creates columns based on screen width without media queries */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            height: 400px; /* Fixed height for uniformity */
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05); /* Zoom effect on hover */
+        }
+
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about {
+            background-color: var(--light-bg);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .about-image {
+            flex: 1 1 400px; /* Grow, Shrink, Basis */
+        }
+
+        .about-image img {
+            width: 100%;
+            display: block;
+            border-radius: 4px;
+        }
+
+        .about-text {
+            flex: 1 1 400px;
+        }
+
+        .about-text h3 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4rem 10% 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 3rem;
+            text-align: left;
+        }
+
+        .footer-col {
+            flex: 1 1 250px;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .footer-col p, .footer-col a {
+            color: #ccc;
+            margin-bottom: 0.5rem;
+            display: block;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 2rem;
+            font-size: 0.8rem;
+            color: #777;
+        }
+
+        /* --- ANIMATION --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- MOBILE RESPONSIVENESS --- */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-padding {
+                padding: 3rem 5%;
+            }
+
+            .about {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-content {
+                text-align: center;
+                justify-content: center;
+            }
+            
+            .footer-col {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo">Avelina Couture</a>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#collections">Collections</a></li>
+                <li><a href="#about">The Designer</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Elegance is an Attitude</h1>
+        <p>Bespoke tailoring and contemporary designs for the modern individual.</p>
+        <a href="#collections" class="cta-btn">View Latest Work</a>
+    </section>
+
+    <!-- Collections Grid -->
+    <section id="collections" class="section-padding">
+        <div class="section-title">
+            Summer 2025
+            <span>The Linen & Silk Collection</span>
+        </div>
+        
+        <div class="gallery-grid">
+            <!-- Item 1 -->
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop" alt="Floral Dress">
+                <div class="overlay">
+                    <h3>Evening Floral</h3>
+                    <p>Hand-stitched Silk</p>
+                </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?q=80&w=1000&auto=format&fit=crop" alt="Velvet Suit">
+                <div class="overlay">
+                    <h3>The Velvet Cut</h3>
+                    <p>Midnight Blue Velvet</p>
+                </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1502716119720-b23a93e5fe1b?q=80&w=1000&auto=format&fit=crop" alt="Minimalist Coat">
+                <div class="overlay">
+                    <h3>Urban Trench</h3>
+                    <p>Organic Cotton Blend</p>
+                </div>
+            </div>
+            <!-- Item 4 -->
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1550614000-4b9519e0926d?q=80&w=1000&auto=format&fit=crop" alt="White Dress">
+                <div class="overlay">
+                    <h3>Bridal Minimal</h3>
+                    <p>French Lace</p>
+                </div>
+            </div>
+            <!-- Item 5 -->
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1000&auto=format&fit=crop" alt="Cocktail Dress">
+                <div class="overlay">
+                    <h3>Summer Breeze</h3>
+                    <p>Chiffon & Tulle</p>
+                </div>
+            </div>
+            <!-- Item 6 -->
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1000&auto=format&fit=crop" alt="Fashion Editorial">
+                <div class="overlay">
+                    <h3>Runway Edition</h3>
+                    <p>Avant-Garde Series</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding about">
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1594136975556-9121a8128325?q=80&w=1000&auto=format&fit=crop" alt="Designer Working">
+        </div>
+        <div class="about-text">
+            <h3>Meet the Designer</h3>
+            <p><strong>Avelina Rossi</strong> believes that clothing is the physical manifestation of one's personality. With over 15 years of experience in Milan and Paris, she brings classical tailoring techniques to modern silhouettes.</p>
+            <p>Every piece is cut, sewn, and finished in our downtown studio, ensuring ethical production and unmatched quality. We don't just make clothes; we craft your second skin.</p>
+            <a href="#contact" style="color: var(--primary-color); font-weight: 600; text-decoration: underline;">Book a Consultation</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Avelina Couture</h4>
+                <p>Tailoring dreams into reality since 2010.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Visit Us</h4>
+                <p>128 Fashion Ave, Design District</p>
+                <p>New York, NY 10012</p>
+                <p>Open: Mon-Sat, 10am - 7pm</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <a href="mailto:studio@avelina.com">studio@avelina.com</a>
+                <a href="tel:+1555000000">+1 (555) 000-0000</a>
+                <br>
+                <a href="#">Instagram</a>
+                <a href="#">Pinterest</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 Avelina Couture. All Rights Reserved. Designed with Simplicity.
+        </div>
+    </footer>
+
+</body>
+</html>
