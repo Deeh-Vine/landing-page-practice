@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Project</title>
+    <style>
+        *{
+        }
+        nav{
+            width: 100%;
+            height: 70px;
+            background-color: #0f131a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            box-sizing: border-box;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+            color: black;
+        }
+        nav a{
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            font-size: 1rem;
+            padding: 12px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        .Header-right {
+            color: #ccc;
+            margin-left: 25px;
+            font-size: 14px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .Header-right a:hover{
+            color: gold;
+        }
+        .logo{
+            font-size: 20px;
+            color: gold;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+        section{
+            height: 200px;
+            background-color: grey;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            min-height: 100vh;
+            background: #1c1f26;
+        }
+        .form-box{
+            width: 350px;
+            background: #2a2f38;
+            padding: 25px;
+            border-radius: 10px;
+        }
+        .form-box h2{
+            text-align: center;
+            color: gold;
+            margin-bottom: 20px;
+        }
+        .input-group{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+        .input-group label{
+            color: #ccc;
+            margin-bottom: 5px;
+        }
+        .input-group input{
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+        }
+        button{
+            width: 100%;
+            padding: 12px;
+            background: gold;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        footer{
+            width: 100%;
+            height: 80px;
+            background: #0f131a;
+            padding: 25px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .footer-content{
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            
+        }
+        footer .content-container{
+            display: flex;
+            flex-direction: row;
+            gap: 40px;
+        }
+        .footer-content p{
+            margin: 2px;
+            color: rgb(121, 120, 120);
+            font-size: 13px;
+            white-space: nowrap;
+        }
+        .footer-content span{
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            LUMEN STAR
+        </div>
+        <div class="Header-right">
+            <a href="#">HOME</a>
+            <a href="#">ABOUT US</a>
+            <a href="#">CONTACT</a>
+            <a href="#">OUR SERVICES</a>
+            <a href="#">ADDRESS</a>
+        </div>
+    </nav>
+    <section>
+        <div class="form-container">
+            <form class="form-box">
+                <h2>
+                    FILL IN YOUR DETAILS
+                </h2>
+                <div class="input-group">
+                    <label for="">FULL NAME</label>
+                    <input type="text" placeholder="enter your full name">
+                </div>
+                <div class="input-group">
+                    <label for="">E-mail</label>
+                    <input type="email" placeholder="example@email.com">
+                </div>
+                <div class="input-group">
+                    <label for="">USERNAME</label>
+                    <input type="text" placeholder="Choose a username">
+                </div>
+                <div class="input-group">
+                    <label for="">PHONE NO</label>
+                    <input type="tel" placeholder="+1 234 567 8900">
+                </div>
+                <div class="input-group">
+                    <label for="">PASSWORD</label>
+                    <input type="password" placeholder=".......">
+                </div>
+                <button type="submit">SUBMIT</button>
+            </form>
+        </div>
+    </section>
+    <footer>
+      <div class="content-container">
+         <div class="footer-content">
+            <p>Built by</p>
+            <span>Steve</span>
+        </div>
+        <div class="footer-content">
+            <p>Powered by</p>
+            <span>Ola fams</span>
+        </div>
+        <div class="footer-content">
+            <P>CURRENT MOOD</P>
+            <span>Live your life</span>
+        </div>
+        <div class="footer-content">
+            <P>COPYRIGHT</P>
+            <span>2025 LUMEN STAR</span>
+        </div>
+      </div>
+        
+    </footer>
+</body>
+</html>
